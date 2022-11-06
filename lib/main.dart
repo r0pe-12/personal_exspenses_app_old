@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter App',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
     );
@@ -41,6 +41,12 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
+  // String? titleInput;
+  // String? amountInput;
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +61,32 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
               color: Colors.blue,
               child: Text('CHART'),
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    // onChanged: ((value) => titleInput = value),
+                    controller: titleController,
+                    decoration: const InputDecoration(labelText: 'Title'),
+                  ),
+                  TextField(
+                    // onChanged: ((value) => amountInput = value),
+                    controller: amountController,
+                    decoration: const InputDecoration(labelText: 'Amount'),
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(foregroundColor: Colors.purple),
+                    onPressed: () {},
+                    child: const Text('Add Transaction'),
+                  )
+                ],
+              ),
             ),
           ),
           Column(
