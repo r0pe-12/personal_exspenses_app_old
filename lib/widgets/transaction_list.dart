@@ -34,7 +34,7 @@ class TransactionList extends StatelessWidget {
                       fontSize: 20,
                       color: Colors.purple,
                     ),
-                    '${userTransactions[index].amount} €',
+                    '${userTransactions[index].amount.toStringAsFixed(2)} €',
                   ),
                 ),
                 Column(
