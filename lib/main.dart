@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'models/transaction.dart';
@@ -20,6 +21,10 @@ class MyApp extends StatelessWidget {
       title: 'Personal Expenses',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
+        fontFamily: 'SFPro',
+        appBarTheme: AppBarTheme(
+            titleTextStyle:
+                TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
       ),
       home: const MyHomePage(),
     );
@@ -110,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {
               showModal(context);
             },
-            icon: const Icon(Icons.add),
+            icon: const Icon(CupertinoIcons.add),
           )
         ],
       ),
@@ -134,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           showModal(context);
         },
-        child: const Icon(Icons.add),
+        child: const Icon(CupertinoIcons.add),
       ),
     );
   }
