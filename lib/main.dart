@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
+import 'models/transaction.dart';
 import 'widgets/new_transaction.dart';
-import 'widgets/user_transactions.dart';
+import 'widgets/transaction_list.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -23,15 +26,78 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Transaction> _userTransactions = [
+    Transaction(
+      id: 't1',
+      title: 'New shoes',
+      amount: 69.90,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Samsung S21',
+      amount: 660.56,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Intel i9',
+      amount: 660.56,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Nvidia RTX 4090',
+      amount: 999.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Iphone 14 pro',
+      amount: 999.99,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Iphone 13',
+      amount: 846.59,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Galaxy Buds 2',
+      amount: 176.98,
+      date: DateTime.now(),
+    ),
+  ];
+
+  void _addNewTransaction(String title, double amount) {
+    final newTx = Transaction(
+      id: DateTime.now().toString(),
+      title: title,
+      amount: amount,
+      date: DateTime.now(),
+    );
+    setState(() {
+      _userTransactions.add(newTx);
+    });
+  }
 
   void showModal(BuildContext ctx) {
     showModalBottomSheet(
-        context: ctx,
-        builder: (bCtx) {
-          return NewTransaction(addNewTransaction: () {});
-        });
+      context: ctx,
+      builder: (bCtx) {
+        return NewTransaction(addNewTransaction: _addNewTransaction);
+      },
+    );
   }
 
   @override
@@ -50,7 +116,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: const <Widget>[
+          children: <Widget>[
             SizedBox(
               width: double.infinity,
               child: Card(
@@ -59,7 +125,7 @@ class MyHomePage extends StatelessWidget {
                 child: Text('CHART'),
               ),
             ),
-            UserTransactions(),
+            TransactionList(userTransactions: _userTransactions),
           ],
         ),
       ),
