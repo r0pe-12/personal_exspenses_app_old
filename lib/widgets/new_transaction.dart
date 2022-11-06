@@ -1,12 +1,17 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatelessWidget {
+class NewTransaction extends StatefulWidget {
   final Function addNewTransaction;
   NewTransaction({super.key, required this.addNewTransaction});
 
-  // String? titleInput;
-  // String? amountInput;
+  @override
+  State<NewTransaction> createState() => _NewTransactionState();
+}
 
+class _NewTransactionState extends State<NewTransaction> {
+  // String? titleInput;
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
@@ -16,10 +21,11 @@ class NewTransaction extends StatelessWidget {
     if (title.isEmpty || amount <= 0) {
       return;
     }
-    addNewTransaction(
+    widget.addNewTransaction(
       title,
       amount,
     );
+    Navigator.of(context).pop();
   }
 
   @override
