@@ -39,50 +39,52 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 't1',
-      title: 'New shoes',
-      amount: 69.90,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Samsung S21',
-      amount: 660.56,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Intel i9',
-      amount: 660.56,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Nvidia RTX 4090',
-      amount: 999.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Iphone 14 pro',
-      amount: 999.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Iphone 13',
-      amount: 846.59,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Galaxy Buds 2',
-      amount: 176.98,
-      date: DateTime.now(),
-    ),
-  ];
+  // final List<Transaction> _userTransactions = [
+  //   Transaction(
+  //     id: 't1',
+  //     title: 'New shoes',
+  //     amount: 69.90,
+  //     date: DateTime.now(),
+  //   ),
+  //   Transaction(
+  //     id: 't2',
+  //     title: 'Samsung S21',
+  //     amount: 660.56,
+  //     date: DateTime.now(),
+  //   ),
+  //   Transaction(
+  //     id: 't2',
+  //     title: 'Intel i9',
+  //     amount: 660.56,
+  //     date: DateTime.now(),
+  //   ),
+  //   Transaction(
+  //     id: 't2',
+  //     title: 'Nvidia RTX 4090',
+  //     amount: 999.99,
+  //     date: DateTime.now(),
+  //   ),
+  //   Transaction(
+  //     id: 't2',
+  //     title: 'Iphone 14 pro',
+  //     amount: 999.99,
+  //     date: DateTime.now(),
+  //   ),
+  //   Transaction(
+  //     id: 't2',
+  //     title: 'Iphone 13',
+  //     amount: 846.59,
+  //     date: DateTime.now(),
+  //   ),
+  //   Transaction(
+  //     id: 't2',
+  //     title: 'Galaxy Buds 2',
+  //     amount: 176.98,
+  //     date: DateTime.now(),
+  //   ),
+  // ];
+
+  final List<Transaction> _userTransactions = [];
 
   void _addNewTransaction(String title, double amount) {
     final newTx = Transaction(
