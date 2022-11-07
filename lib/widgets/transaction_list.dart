@@ -30,6 +30,7 @@ class TransactionList extends StatelessWidget {
                             color: Theme.of(context).primaryColorLight,
                             width: 2,
                           ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
                           style: TextStyle(
