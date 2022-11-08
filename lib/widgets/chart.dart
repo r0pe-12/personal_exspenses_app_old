@@ -45,7 +45,7 @@ class Chart extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            ...groupedTransactions.map((data) {
+            ...groupedTransactions.reversed.map((data) {
               return Flexible(
                 fit: FlexFit.tight,
                 child: ChartBar(

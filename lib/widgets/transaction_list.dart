@@ -19,46 +19,54 @@ class TransactionList extends StatelessWidget {
                 return Card(
                   child: Row(
                     children: <Widget>[
-                      Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 15,
-                        ),
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Theme.of(context).primaryColorLight,
-                            width: 2,
+                      Expanded(
+                        flex: 3,
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 15,
                           ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Text(
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Theme.of(context).primaryColorDark,
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).primaryColorLight,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          '${userTransactions[index].amount.toStringAsFixed(2)} €',
+                          child: FittedBox(
+                            child: Text(
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Theme.of(context).primaryColorDark,
+                              ),
+                              '${userTransactions[index].amount.toStringAsFixed(2)} €',
+                            ),
+                          ),
                         ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                      Flexible(
+                        flex: 5,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                              userTransactions[index].title,
                             ),
-                            userTransactions[index].title,
-                          ),
-                          Text(
-                            style: const TextStyle(
-                              color: Colors.blueGrey,
+                            Text(
+                              style: const TextStyle(
+                                color: Colors.blueGrey,
+                              ),
+                              DateFormat.yMMMMd()
+                                  .format(userTransactions[index].date),
                             ),
-                            DateFormat.yMMMMd()
-                                .format(userTransactions[index].date),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
